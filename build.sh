@@ -1,3 +1,4 @@
+#!/bin/sh -e
 PROGNAME=${0##*/}
 
 usage() {
@@ -49,7 +50,7 @@ fi
 
 SRC_DIR=$(cd "$(dirname "$SRC")" && pwd)
 SRC_BASE=${SRC##*/}
-FINAL_PATH=$SRC_DIR/$OUT_NAME
+FINAL_PATH=$PWD/$OUT_NAME
 
 TMPDIR=$(mktemp -d "${TMPDIR:-/tmp}/build.XXXXXX") || {
     echo "$PROGNAME: ошибка: не удалось создать временный каталог" >&2
